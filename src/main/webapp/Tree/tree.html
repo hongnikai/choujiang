@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../resource/css/css.css">
+    <link rel="stylesheet" type="text/css" href="../resource/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../resource/css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../resource/css/icon.css">
+    <script src="../resource/js/jquery-3.1.0.min.js"></script>
+    <script src="../resource/js/jquery.easyui.min.js"></script>
+
+</head>
+<body class="layui-layout-body">
+<div id="aps" class="head">
+    <h1>进入界面</h1>
+    <input id="tree"  style="width:250px;padding-right: 10px;"/>
+    <input id="tree2"  style="width:250px;padding-right: 10px;"/>
+</div>
+</body>
+</html>
+<script type="application/javascript">
+    var provice = [];
+    var provice2 = [];
+    function getData(){
+        $.ajax({
+            url:"http://localhost:8080/choujiang/treeController/dataTree",
+            type:"get",
+            data:{"deptCode":"21311027210202902"},
+            success:function(data){
+                provice.push({id:data[0].id,text:data[0].text,code:data[0].id,state:data[0].state,
+                    children:data[0].children});
+                $("#tree").combotree({
+                    required:true
+                })
+                $("#tree").combotree('loadData',provice);
+                $("#tree").combotree('setValue',provice[0]);
+            },
+            dataType:"json",
+            error: function(msg){
+                console.log("网络请求异常: 错误信息-----> " + JSON.stringify(msg));
+            },
+            async:false
+        });
+    }
+    getData();
+
+
+    function getData2(){
+        $.ajax({
+            url:"http://localhost:8080/choujiang/treeController/dataTreeOnebyOne",
+            type:"get",
+            data:{"deptCode":"40101005110000001"},
+            success:function(data){
+                provice2.push({id:data[0].id,text:data[0].text,code:data[0].id,state:data[0].state,
+                    children:[]});
+                $("#tree2").combotree({
+                    required:true,
+                    onChange:function () {
+                        var trs = $("#tree2").combotree('tree');
+                        var non = trs.tree('getSelected');
+                    },
+                    onBeforeExpand:function (node) {
+                            if(node.children==''||node.children==undefined){
+                                $('#tree2').combotree('loadData',[]);
+                                $.ajax({
+                                    url:"http://localhost:8080/choujiang/treeController/selectNextTreeData",
+                                    type:"get",
+                                    data:{"deptCode":node.code},
+                                    success:function (res) {
+                                        for(var i=0;i<res.length;i++){
+                                            node.children.push({id:res[i].id,text:res[i].text,name:res[i].text,code:res[i].id,state:res[i].state,children:[]});
+                                        }
+                                        node.state="open";
+                                        $("#tree2").combotree('loadData',provice2);
+                                    },
+                                    error:function (err) {
+                                        console.log("网络请求异常： 错误信息————————>" + JSON.stringify(err));
+                                    }
+                                })
+                            }
+                    }
+                })
+                $("#tree2").combotree('loadData',provice2);
+                $("#tree2").combotree('setValue',provice2[0]);
+            },
+            dataType:"json",
+            error: function(msg){
+                console.log("网络请求异常: 错误信息-----> " + JSON.stringify(msg));
+            },
+            async:false
+        });
+    }
+
+     getData2();
+
+
+</script>

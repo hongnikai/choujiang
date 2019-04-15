@@ -1,0 +1,188 @@
+#body_css{
+	padding: 0px;	
+	margin: 0px;
+	background-color: #f5f5f5;
+	width: auto;
+}
+#head_div{
+	background-color: #ff5353;
+	height: 170px;
+}
+#head_a{
+	font-family: "黑体";
+	font-size: 50px;
+	color: white;
+}
+
+.head_h1_a{
+	margin-left: 0px;
+	color: white;
+	font-size: 50px;
+	font-weight: bolder;
+}
+#box1{
+	position: relative;
+	height: 300px;
+	background-color: white;
+	border-bottom: 1px solid black;
+	margin-top: 170px;
+}
+#box1 a:link { 
+     color:black;
+text-decoration: none; 
+} 
+#box1 a:visited { 
+ color:black;
+text-decoration: none; 
+} 
+#box1 a:hover { 
+ color:black;
+text-decoration: none; 
+} 
+#box1 a:active { 
+ color:black;
+text-decoration: none; 
+} 
+
+
+
+#box1_a{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 50px;
+	background: white;
+	border: 0 none;        /* 去掉边框*/
+	outline-style: none;
+	top: 40%;
+	left: 9%;
+}
+#box1_a2{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 50px;
+	background: white;
+	text-decoration:none;
+	top: 40%;
+	left: 67%;
+}
+#box1_a3{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 50px;
+	background: white;
+	text-decoration:none;
+	top: 40%;
+	right: 8%;
+}
+#box2{
+	width: 100%;
+	height: 240px;
+	background: white;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-around;
+	text-align: center;
+	padding-top: 50px;
+}
+.box2_1_input{
+	font-family: "黑体";
+	font-size: 90px;
+	background: white;
+	border: 0 none;        /* 去掉边框*/
+	outline-style: none;
+}
+.my_a{
+	font-size: 30px;
+}
+#box3{
+	margin: 0;
+	padding: 0;
+	width: 99.9%;
+	height: 700px;
+	margin-top: 50px;
+	background: white;
+}
+.box3_div1{
+	position: relative;
+	width: 100%;
+	height: 175px;
+	line-height: 175px;
+	border-bottom: 1px solid gray;
+}
+.box3_div2{
+	position: absolute;
+	width: 100%;
+	height: 175px;
+	margin-top: 18%;
+	border-bottom: 1px solid gray;
+}
+.box3_div3{
+	position: absolute;
+	width: 100%;
+	height: 175px;
+	margin-top: 36%;
+	border-bottom: 1px solid gray;
+}
+.box3_div4{
+	position: absolute;
+	width: 100%;
+	height: 174px;
+	margin-top: 54%;
+}
+.box3_div_img{
+	position: absolute;
+	top: 45px;
+	left: 30px;
+	width: 80px;
+	height: 80px;
+}
+.box3_div_a{
+	font-family: "黑体";
+	font-size: 50px;
+	margin-left: 150px;
+}
+.box3_div_a2{
+	font-family: "黑体";
+	font-size: 50px;
+	position: absolute;
+	top: 0;
+	right: 30px;
+}
+#box4{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 200px;
+	background: #f5f5f5;
+	border-top: 1px solid gray;
+}
+#sixth_boximggg{
+	margin-left: 19%;
+	width: 120px;
+	height: 100px;
+	position: absolute;
+}        
+#sixth_box_img2{
+	margin-top: 5%;
+	background-color: #f5f5f5;
+	margin-left: 71.5%;
+	width: 70px;
+	height: 60px;
+	position: absolute;
+}
+#sixth_box_a1{
+	margin-top: 10%;
+	font-family: "黑体";
+	margin-left: 17%;
+	font-weight: bold;
+	font-size: 40px;
+	position: absolute;
+}
+#sixth_box_a2{
+	margin-top: 10%;
+	font-family: "黑体";
+	margin-left: 70.5%;
+	font-weight: bold;
+	font-size: 40px;
+	position: absolute;
+}

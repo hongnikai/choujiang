@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lc.dao.NormalDao">
+
+   <!--新建一条测试-->
+    <select id="test" resultType="String">
+        select my_user.id from my_user where id=1
+    </select>
+
+    <sql id="price_key">
+        <trim suffixOverrides=",">
+            <if test="p_id != null">p_id,</if>
+            <if test="open_id != null">open_id,</if>
+            <if test="img != null">img,</if>
+            <if test="p_name != null">p_name,</if>
+            <if test="p_num != null">p_num,</if>
+            <if test="man_num != null">man_num,</if>
+            <if test="p_condition != null">p_condition,</if>
+            <if test="time != null">time,</if>
+            <if test="order_state != null">order_state</if>
+        </trim>
+    </sql>
+
+    <sql id="price_value">
+        <trim suffixOverrides=",">
+            <if test="p_id != null">#{p_id},</if>
+            <if test="open_id != null">#{open_id},</if>
+            <if test="img != null">#{img},</if>
+            <if test="p_name != null">#{p_name},</if>
+            <if test="p_num != null">#{p_num},</if>
+            <if test="man_num != null">#{man_num},</if>
+            <if test="p_condition != null">#{p_condition},</if>
+            <if test="time != null">#{time},</if>
+            <if test="order_state != null">#{order_state}</if>
+        </trim>
+    </sql>
+
+    <insert id="createPrice" parameterType="map">
+        insert into price (<include refid="price_key"/>) values(<include refid="price_value"/>)
+    </insert>
+
+    <!--根据open_id查询用户信息-->
+    <select id="selectUserInfoByOpenId" parameterType="String" resultType="map">
+        select *
+        from user
+        where user.open_id = #{open_id}
+    </select>
+
+    <select id="selectAllPrice" resultType="map">
+        select *
+        from price
+    </select>
+
+    <update id="updatePricePriceName" parameterType="String">
+        update price
+        <set>
+          <trim suffixOverrides=",">
+              <if test="p_name != null">p_name=#{p_name}</if>
+          </trim>
+        </set>
+        where p_id = #{p_id}
+    </update>
+
+    <select id="getPriceByPid" parameterType="String" resultType="map">
+        select *
+        from price
+        where p_id=#{p_id}
+    </select>
+
+    <sql id="priceOrder_key">
+        <trim suffixOverrides=",">
+            <if test="p_order_id != null">p_order_id,</if>
+            <if test="p_id != null">p_id,</if>
+            <if test="open_id != null">open_id,</if>
+            <if test="create_time != null">create_time,</if>
+            <if test="order_state != null">order_state,</if>
+            <if test="win_num != null">win_num,</if>
+        </trim>
+    </sql>
+
+    <sql id="priceOrder_value">
+        <trim suffixOverrides=",">
+            <if test="p_order_id != null">#{p_order_id},</if>
+            <if test="p_id != null">#{p_id},</if>
+            <if test="open_id != null">#{open_id},</if>
+            <if test="create_time != null">#{create_time},</if>
+            <if test="order_state != null">#{order_state},</if>
+            <if test="win_num != null">#{win_num},</if>
+        </trim>
+    </sql>
+
+    <insert id="createPriceOrderByOpenid" parameterType="map">
+        insert into price_order (<include refid="priceOrder_key"/>) values(<include refid="priceOrder_value"/>)
+    </insert>
+
+    <select id="selectUserJoinPriceOrder" parameterType="String" resultType="map">
+        select *
+        from price_order
+        where open_id =#{open_id}
+    </select>
+        
+    <select id="selectUserCreateByOpenid" parameterType="String" resultType="map">
+        select *
+        from price
+        where open_id=#{open_id}
+    </select>
+
+    <select id="selectUserJoinPriceOrderOrderState1" parameterType="String" resultType="map">
+        select *
+        from price_order
+        inner join price
+        on price_order.p_id = price.p_id
+        where price_order.open_id =#{open_id}
+        and price_order.order_state = 1
+    </select>
+
+    <select id="selectUserJoinPriceDetail" parameterType="String" resultType="map">
+        select *
+        from price_order
+        inner join price
+        on price.p_id=price_order.p_id
+        where price_order.open_id =#{open_id}
+    </select>
+
+    <select id="userJoinPriceYesOrNot" parameterType="String" resultType="int">
+        select count(*)
+        from price_order
+        where p_id =#{p_id}
+        and open_id =#{open_id}
+    </select>
+
+    <update id="updataPriceOrderState1ByPid" parameterType="String">
+        update price
+        set order_state =1
+        where p_id=#{p_id}
+    </update>
+
+    <select id="selectRandmPriceOrderWin" resultType="map" parameterType="map">
+        select *
+        from price_order
+        where p_id=#{p_id}
+        order By Rand()
+        limit 0 , #{man_num}
+    </select>
+
+    <update id="updateUserWinPriceOrder" parameterType="int">
+        update price_order
+        <set>
+            <trim suffixOverrides=",">
+                order_state=1,
+                <if test="win_num != null">win_num=#{win_num},</if>
+            </trim>
+        </set>
+        where p_order_id =#{p_order_id}
+    </update>
+
+    <select id="selectPriceWinPriceOrderDetail" parameterType="String" resultType="map">
+         select *
+        from price
+        inner join price_order
+        on price.p_id = price_order.p_id
+        where price.p_id=#{p_id}
+		and price.order_state=1
+    </select>
+
+    <delete id="deletePriceOutOfTime">
+        delete
+        from price
+        where time  &lt; #{time}
+    </delete>
+
+    <delete id="delectPriceOrderNotInPrice">
+        delect
+        from price_order
+        where price_order.p_id not in (select price.p_id from price)
+    </delete>
+
+
+</mapper>

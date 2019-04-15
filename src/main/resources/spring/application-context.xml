@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:db.properties</value>
+                <value>classpath:log4j.properties</value>
+             </list>
+        </property>
+    </bean>
+
+    <import resource="classpath:spring/spring-dao.xml"/>
+    <import resource="classpath:spring/spring-service.xml"/>
+    <import resource="classpath:spring/spring-web.xml"/>
+
+    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <util:properties id="asdasd" location="classpath:dbconfig.properties"/>
+    <!-- task任务扫描注解 -->
+    <!--<task:annotation-driven/>-->
+    <!--<context:component-scan base-package="com.lc.task" />-->
+
+
+
+    <context:annotation-config />
+    <!--<context:component-scan base-package="com.lc.task" />-->
+
+    <!--<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">-->
+        <!--&lt;!&ndash; 核心线程数 &ndash;&gt;-->
+        <!--<property name="corePoolSize" value="${task.core_pool_size}" />-->
+        <!--&lt;!&ndash; 最大线程数 &ndash;&gt;-->
+        <!--<property name="maxPoolSize" value="${task.max_pool_size}" />-->
+        <!--&lt;!&ndash; 队列最大长度 &ndash;&gt;-->
+        <!--<property name="queueCapacity" value="${task.queue_capacity}" />-->
+        <!--&lt;!&ndash; 线程池维护线程所允许的空闲时间，默认为60s &ndash;&gt;-->
+        <!--<property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />-->
+    <!--</bean>-->
+    <!-- 注解式 -->
+
+    <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
+    <task:scheduler id="qbScheduler" pool-size="10"/>
+    <!--<task:annotation-driven />-->
+
+    <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration"/>
+    <bean class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="188.131.178.20"/>
+        <property name="port" value="6379"/>
+        <property name="database" value="0"/>
+    </bean>
+</beans>

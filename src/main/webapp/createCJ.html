@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建抽奖</title>
+		<link rel="stylesheet" type="text/css" href="./resource/css/style.css"/>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<style>
+			.fileInputContainer{
+				height:200px;
+				background:url('./resource/img/create1.jpg');
+				position:relative;
+				width: 200px;
+				margin-left: 59%;
+				margin-top: -2%;
+			}
+			.fileInput{
+				height:200px;
+				overflow: hidden;
+				font-size: 300px;
+				position:absolute;
+				right:0%;
+				top:0;
+				opacity: 0;
+				filter:alpha(opacity=0);
+				cursor:pointer;
+				width: 100%;
+			}
+			select::-ms-expand { display: none; }
+		</style>
+		<!--<script src="js/create.js" type="text/javascript" charset="utf-8" />-->
+	</head>
+	<body id="body_css">
+	<form action="" method="post" enctype="multipart/form-data">
+		<div id="head_div">
+			<span id="head_div_a1"><</span>
+			<span class="headetxt">抽奖小助手</span>
+		</div>
+		
+		<div id="second_box">
+			<span class="span_h1">
+				抽奖活动标题<em>*</em>
+			</span>
+		</div>
+			<input type="text" name="" id="form1" value="" placeholder="请输入抽奖活动标题(最长30个字)" maxlength="30" required="required"/>
+			
+		<div id="second_box_create">
+			<span class="span_h1">
+				抽奖活动说明
+			</span>
+		</div>
+
+		<textarea id="textarea_create1" name="" rows="" cols=""  placeholder="请输入关于抽奖活动的详细说明"></textarea>
+		
+		<div id="fourth_box_create">
+			<span class="span_h1">
+				奖项设置<em>*</em>
+			</span>
+		</div>
+		
+		<div id="fifth_box_create">
+			
+			<input id="fifth_box_create_input1" type="text" placeholder="请输入奖品名称(必填)" maxlength="20" required="required"/>
+
+			<div class="fileInputContainer">
+				<input class="fileInput" id="" type="file" name="">
+			</div>
+
+			<img id="fifth_box_create_delete" src="./resource/img/closelittle.png" alt="无法显示"  />
+			<span id="fifth_box_create_delete_a">删除</span>
+			<span id="fifth_box_create_num">奖品数量</span>
+			<input type="button" id="button_min" value="-"/>
+			<input type="text" id="create_text" value="1"/>
+			<input type="button" id="button_plus" value="+" />
+
+			<!--<div class="tianjia">
+			<img src="./resource/img/jiah.png" id="fifth_box_create_img2" alt="无法显示" />
+			<span id="fifth_box_create_add">添加奖项</span>
+			</div>-->
+
+		</div>
+		<!--
+        	作者：offline
+        	时间：2018-07-08
+        	描述：
+        -->
+        <div id="set_tj">
+			<span class="span_h1">
+				设置开奖条件<em>*</em>
+			</span>
+		</div>
+		
+		<div id="sixth_box_create">
+			<div class="sixth_box_creatediv">
+			&nbsp;<a>开奖类型</a>
+				<select id="select_id" name="" style="
+				width: 24%;
+				text-align: center;
+				border: none;
+				outline: none;
+				appearance: none;
+				-webkit-appearance: none;
+                -moz-appearance: none;
+				margin-left: 26%;
+				font-size: 32px;
+				padding-left: auto;
+			">
+					<option value="按照时间抽奖" style="border: none;outline:none;font-size: 16px;">按照时间开奖</option>
+					<option value="按照人数抽奖" style="border: none;outline:none;font-size: 16px;">按照人数开奖</option>
+				</select>
+			<!--<span id="choose_type"> > </span>-->
+			</div>
+		</div>
+
+		<!--<div id="create_tel_box">
+			<span class="span_h1">
+				联系方式
+			</span>
+		</div>-->
+
+		<!--<div id="sixth_box_create">
+			<div class="sixth_box_creatediv">
+			<span>开奖类型</span>
+			<span>按时间自动开奖</span>
+			<span>></span>
+			</div>
+		</div>-->
+
+		<div id="eight_box">
+			<center><a id="make_sure">确认即表示已同意《微信公众平台服务协议》</a></center>
+		</div>
+		
+		<div id="nineth_box">
+				<input id="nineth_box_submit" type="submit" value="确认发布" />
+		</div>
+
+	</form>
+	</body>
+</html>
+<script type="application/javascript">
+			var create_text =  $("#create_text").val();
+				create_text = 1;
+	$("#button_plus").click(
+		    function () {
+                create_text += 1;
+                console.log("点击加号之后，奖品数量为:",create_text);
+                $("#create_text").val(create_text);
+            }
+		);
+	$("#button_min").click(
+	    function () {
+			if(create_text==1){
+			//do nothing
+			}else{
+                create_text-=1;
+                $("#create_text").val(create_text);
+			}
+			console.log("点击减号之后，奖品数量为:",create_text);
+        }
+	);
+	$("#choose_type").click(function () {
+
+
+
+
+    });
+
+
+</script>

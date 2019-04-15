@@ -1,0 +1,533 @@
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
+}
+
+ul,
+li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+input {
+	-webkit-tap-highlight-color: transparent;
+	background-color: transparent;
+	outline: none;
+}
+
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+html {
+	width: 100%;
+	font-family: 'SourceHanSansCN-Normal';
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'SourceHanSansCN-Normal';
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+canvas {
+	display: block;
+	position: relative;
+}
+
+img {
+	border: 0 none;
+	outline: 0 none
+}
+
+em {
+	font-style: normal;
+}
+
+i {
+	font-style: normal;
+}
+
+button {
+	outline: none;
+	border: none;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+* {
+	word-wrap: break-word;
+	word-break: break-all;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body,
+h1,
+ul,
+ol,
+h2,
+p,
+figure,
+h3 {
+	margin: 0;
+	padding: 0;
+}
+
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+#head_div{
+	border: 1px solid red;
+	background-color: #ff5353;
+	height: 170px;
+	line-height: 170px;
+	position: relative;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 9999999;
+}
+.headetxt{
+	font-size: 45px;
+	color: #fff;
+}
+#body_css{
+	padding: 0px;	
+	margin: 0px;
+	background-color: #f5f5f5;
+}
+
+#second_box{
+	height: 80px;
+	line-height: 80px;
+	margin-left: 20px;
+	margin-top: 170px;
+}
+.span_h1{
+	font-size: 40px;
+}
+.span_h1 em{
+	color: red;
+}
+/*.ipt{
+	background: #fff;
+}*/
+.head_h1_a{
+	margin-left: 0px;
+	color: white;
+	font-size: 50px;
+	font-weight: bolder;
+}
+#third_box{
+	margin-top: 70px;
+	
+}
+#third_box_img{
+	margin: 0px;
+	padding: 0px;
+	height: 400px;
+	width: 950px;
+}
+#fourth_box{
+	margin-top: 80px;
+	margin-left: 50px;
+}
+.fourth_box_a{
+	font-family: "黑体";
+	margin-left: -2px;
+	font-weight: bold;
+	font-size: 40px;
+}
+#fifth_box{
+	margin-top: 80px;
+/*	border: 1px solid black;*/
+}
+.fifth_box_img{
+	margin-left: 2%;
+	width: 460px;
+	/*border: 1px solid black;*/
+	
+}
+.hot{
+            width:100%;
+            height:20px;
+            background-color:#f2f2f2;
+            text-align:center;
+            color:#000;
+            font-size:12px;
+            line-height:20px;
+            position:relative;
+            margin-top: 400px;
+        }
+        .hot:after{
+            content:"";
+            width:100%;
+            height:1px;
+           background-color:gray;
+           position:absolute;
+           bottom:50%;
+           z-index:1;
+           left:0;
+}
+#sixth_box_img1{
+	/*margin-top: -10px;*/
+	margin-left: 19%;
+	width: 120px;
+	height: 100px;
+	position: absolute;
+}        
+#sixth_box_img2{
+	background-color: #f5f5f5;
+	margin-top: 28px;
+	margin-left: 71.5%;
+	width: 70px;
+	height: 60px;
+	position: absolute;
+}
+#sixth_box_a1{
+	margin-top: 80px;
+	font-family: "黑体";
+	margin-left: 17%;
+	font-weight: bold;
+	font-size: 40px;
+	position: absolute;
+}
+#sixth_box_a2{
+	margin-top: 70px;
+	font-family: "黑体";
+	margin-left: 70.5%;
+	font-weight: bold;
+	font-size: 40px;
+	position: absolute;
+}
+#fifth_box_img1{
+	height: 274px;
+}
+#head_div_a1{
+	color: white;	
+	font-size: 70px;
+	position: absolute;
+	left: 10px;
+	top: -7px;
+}
+#span_box_h1_a1{
+	color: #ff5353;
+}
+#span_box_h1_a2{
+	color: #ff5353;
+}
+#form1{
+	width: 98%;
+	height: 80px;
+	border: none; 
+	outline-style: none;
+	font-family: "黑体";
+	font-size:34px;
+	padding-left: 20px;
+	background: #fff;
+}
+#second_box_create{
+	height: 80px;
+	line-height: 80px;
+	margin-left: 20px;
+}
+#textarea_create1{
+	resize: none;
+	width: 98%;
+	height: 260px;
+	margin: 0;
+	padding: 0;
+	border:none;        /* 去掉边框*/
+	outline-style: none;
+	font-size:34px;
+	font-family: "黑体";
+	padding-left: 20px;
+}
+#fourth_box_create{
+	height: 80px;
+	line-height: 80px;
+	margin-left: 20px;
+}
+#fifth_box_create{
+	width: 100%;
+	height: 400px;/*400px;*/
+	border: none;        /* 去掉边框*/
+	outline-style: none;
+	background-color: white;
+	position: relative;
+}
+#fifth_box_create_input1{
+	display: block;
+	width: 50%;
+	height: 70px;
+	font-family: "黑体";
+	font-size: 34px;
+	margin-left: 30px;
+	margin-bottom: 30px;
+	border: none;        /* 去掉边框*/
+	outline-style: none;
+	border-bottom: 1px solid black;
+}
+#fifth_box_create_line{
+	position: absolute;
+	margin-left: -50%;
+	margin-top: 100px;
+}
+#fifth_box_create_img1{
+	position: absolute;
+	left: 60%;
+	top:65px;
+	width: 200px;
+	height: 200px;
+	
+}
+#fifth_box_create_delete{
+	width: 45px;
+	position: absolute;
+	left: 89%;	
+	top: 34%;
+}
+#fifth_box_create_delete_a{
+	position: absolute;
+	left: 87%;
+	top: 45%;
+	font-family: "黑体";
+	font-size: 40px;
+}
+#fifth_box_create_num{
+	font-size: 40px;
+	margin-left: 30px;
+}
+#button_min{
+	margin-left: 20px;
+	font-size: 40px;
+	width: 50px;
+	border: none;
+	outline: none;
+	background: #F2F2F2;
+}
+#create_text{
+	font-size: 40px;
+	width: 85px;
+	text-align: center;
+	border: 1px;        /* 去掉边框*/
+	outline-style: none;
+}
+#button_plus{
+	font-size: 40px;
+	width: 50px;
+	outline: none;
+	border:none;
+	background: #F2F2F2;
+}
+#fifth_box_create_img2{
+	width: 50px;
+	position: absolute;
+	top: 20px;
+	left: 25px;
+}
+#fifth_box_create_add{
+	font-family: "黑体";
+	font-size: 40px;
+	margin-left: 80px;
+}
+.tianjia{
+	display: none;
+	position: relative;
+	height: 90px;
+	line-height: 90px;
+	width: 100%;
+	border-top: 1px solid black;
+	top: 10%;
+}
+
+#set_tj{
+	width: 100%;
+	position: relative;
+	border: 1px solid red;
+	height: 90px;
+	line-height: 90px;
+	border:none;  
+	outline-style: none;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+#sixth_box_create{
+	width: 100%;
+	height: 300px;
+	background: #FFFFFF;
+	font-size: 40px;
+}
+.sixth_box_creatediv{
+	border-bottom: 1px solid black;
+}
+.sixth_box_creatediv span:nth-child(1){
+	margin-left: 20px;
+}
+.sixth_box_creatediv span:nth-child(2){
+	margin-left: 20%;
+	color: #808080;
+}
+.sixth_box_creatediv span:nth-child(3){
+	float: right;
+	margin-right: 30px;
+}
+#szkjsj{
+	position: absolute;
+	margin-top: 3%;
+	margin-left: 3.5%;
+	font-family: "黑体";
+	font-size: 40px;
+}
+#szkjsj2{
+	position: absolute;
+	margin-top: 3%;
+	margin-left: 28.5%;
+	font-family: "黑体";
+	font-size: 40px;
+	color: red;
+}
+/*#fifth_box_create_line3{
+	position: absolute;
+	width: 100%;
+	margin-top: 48%;
+}*/
+{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 7.5%;
+	margin-left: 2.8%;
+}
+#sixth_box_input3{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 7%;
+	margin-left: 50%;
+	border: 0 none;        /* 去掉边框*/
+	outline-style: none;
+}
+#sixth_box_button2{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 6.8%;
+	margin-left: 93.3%;
+}
+#sixth_box_create_line2{
+	position: absolute;
+	margin-top: 10.3%;
+}
+#create_tel_box{
+	position: relative;
+	width: 100%;
+	height: 90px;
+	line-height: 90px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+#create_tel_box_a{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;	
+	margin-top: 1.5%;
+	margin-left: 3%;
+}
+#seven_box{
+	position: relative;
+	width: 100%;
+	height: 70px;
+	background-color: white;
+}
+#seven_box_a{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 1.5%;
+	margin-left: 3%;
+}
+#seven_box_input{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 1.5%;
+	margin-left: 50%;
+	border: 0 none;        /* 去掉边框*/
+	outline-style: none;
+}
+#seven_box_button{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 40px;
+	margin-top: 1.5%;
+	margin-left: 93.3%;
+}
+#eight_box{
+	position: relative;
+	width: 100%;
+	height: 100px;
+}
+#make_sure{
+	position: absolute;
+	font-family: "黑体";
+	font-size: 30px;
+	color: gray;
+	margin-top: 4%;
+	margin-left: -26%;
+}
+#nineth_box{
+	position: relative;
+	width: 100%;
+	height: 200px;	
+	text-align: center;
+}
+#nineth_box_submit{
+	font-family: "黑体";
+	font-size: 50px;
+	background-color: #ff5353;;
+	color: white;
+	width: 240px;   
+    height: 100px;   
+    padding:20px;   
+    border: 1px solid red;   
+    border-radius : 25px;
+    margin: 20px auto;
+}
+div {   
+        
+} 
+#create_delete_box{
+	position: relative;
+}

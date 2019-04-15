@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lc.dao.TreeDao">
+	<resultMap id="BaseResultMap" type="com.lc.entity.TreeEntity.MagTree">
+		<!--<id column="id" property="ID" jdbcType="BIGINT" />-->
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="text" property="text" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		job_id, create_time, update_time, job_name, job_group, job_status,
+		cron_expression,
+		description, bean_class, is_concurrent, spring_id, method_name
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from task_schedule_job
+		where job_id = #{jobId,jdbcType=BIGINT}
+	</select>
+	<select id="find" resultMap="BaseResultMap" parameterType="String">
+		 select d.DEPT_CODE id,d.DEPT_NAME text from MAG_OR_SUPPLY_DEPT d where d.dept_code=#{deptCode,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findNext" resultMap="BaseResultMap" parameterType="String">
+		 select d.DEPT_CODE ID,d.DEPT_NAME TEXT from MAG_OR_SUPPLY_DEPT d where d.PARENT_ID=
+		 (select d.id from MAG_OR_SUPPLY_DEPT d where d.DEPT_CODE = #{deptCode,jdbcType=VARCHAR})
+		 order by d.DEPT_TYPE desc
+	</select>
+
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--配置springMVC-->
+
+    <!--1:开始springMVC注解模式-->
+
+    <!--简化配置:
+    ①自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+    ②提供一系列:数据绑定,数字和日期的format,@NumberFormat,@DataTimeFormat,xml,json默认读写支持
+    -->
+    <mvc:annotation-driven/>
+
+    <!--2:静态资源默认servlet配置
+    ①加入对静态资源的处理:js,css,gif,png
+    ②允许使用"/"做整体映射
+    -->
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/>
+    <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
+    <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
+
+
+
+    <!--3:配置JSP　显示ViewResolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=""/>
+    </bean>
+
+    <!--4:扫描web相关的bean-->
+    <!--<context:component-scan base-package="com.lc.controller"/>-->
+
+    <context:component-scan base-package="com.lc.controller" >
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 配置文件上传 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="UTF-8" />
+        <!-- 文件大小最大值 -->
+        <property name="maxUploadSize" value="5120000000" />
+        <!-- 启用是为了推迟文件解析，以便捕获文件大小异常 -->
+        <property name="resolveLazily" value="true" />
+    </bean>
+
+    <!--配置拦截器-->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/> &lt;!&ndash; path="/*" 要拦截的路径 只能拦截 ..contextroot/one.do, ..contextroot/two.do, 无法拦截..contextroot/abc/one.do这种多层级的路径 &ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/login.*"/>&lt;!&ndash; 默认不拦截的路径登录 &ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/loginManager.*"/> &lt;!&ndash;  登录 &ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/system/logout.action"/>&lt;!&ndash; 登出 &ndash;&gt;-->
+            <!--<bean class="com.lc.filter.SessionTimeoutFilter"></bean> &lt;!&ndash;  bean标签必须放在<mvc:mapping mvc:exclude-mapping下面 &ndash;&gt;-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+
+
+</beans>
