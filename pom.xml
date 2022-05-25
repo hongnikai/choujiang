@@ -24,7 +24,7 @@
         <spring.framework.version>3.0.5.RELEASE</spring.framework.version>
         <cxf.version>2.3.2</cxf.version>
         <tiles.version>2.2.2</tiles.version>
-        <spring.version>4.2.5.RELEASE</spring.version> <!-- spring版本号 -->
+        <spring.version>5.2.22.RELEASE</spring.version> <!-- spring版本号 -->
         <mybatis.version>3.2.8</mybatis.version>  <!-- mybatis版本号 -->
         <mysql-driver.version>5.1.45</mysql-driver.version>  <!-- mysql驱动版本号 -->
         <aspectj.version>1.8.9</aspectj.version>
